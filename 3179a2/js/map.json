@@ -1,0 +1,31 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Population Spread of Australia in 2019",
+  "width": 570,
+  "height": 400,
+  "projection": {"type": "mercator"},
+  "data": {
+    "url": "../js/ne_110m.json",
+    "format": {"type": "topojson", "feature": "STE_2016_AUST"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.STE_NAME16",
+      "from": {
+        "data": {
+          "url": "../data/Population change by capital city.csv"
+        },
+        "key": "State",
+        "fields": ["Population"]
+      }
+    }
+  ],
+  "mark": {"type": "geoshape", "stroke": "white"},
+  "encoding": {
+    "color": {"field": "Population", "type": "quantitative"},
+    "tooltip": [
+      {"field": "properties.STE_NAME16", "type": "nominal", "title": "State"},
+      {"field": "Population", "type": "quantitative"}
+    ]
+  }
+}

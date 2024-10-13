@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Australian Population Map</title>
+  <!-- Load Vega, Vega-Lite, and Vega-Embed -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+</head>
+<body>
+
+  <!-- Div to display the map -->
+  <div id="map"></div>  <!-- Updated div id to "map" to match your JavaScript -->
+
+  <script type="text/javascript">
+    var vs1 = "js/map.json";  // Make sure the path to map.json is correct
+    vegaEmbed("#map", vs1).then(function(result) {
+      // Access the Vega view instance here if needed
+    }).catch(console.error);
+  </script>
+
+</body>
+</html>
